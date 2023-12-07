@@ -30,4 +30,8 @@ class ServiceRequestServiceImpl(
         serviceRequestRepository.save(request)
         return serviceRequestMapper.fromEntity(request)
     }
+
+    override fun deleteRequest(requestId: String) {
+        serviceRequestRepository.deleteById(requestId)
+    }
 }

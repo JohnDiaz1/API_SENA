@@ -25,4 +25,8 @@ class EmployeeServiceImpl(
         // It will have an ID
         return employeeMapper.fromEntity(client)
     }
+
+    override fun deleteEmployee(employeeId: String) {
+        employeeRepository.deleteById(employeeId)
+    }
 }

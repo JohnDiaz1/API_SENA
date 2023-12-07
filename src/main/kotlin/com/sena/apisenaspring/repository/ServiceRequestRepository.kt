@@ -13,4 +13,7 @@ interface ServiceRequestRepository: CrudRepository<ServiceRequest, String> {
     @Query("SELECT src FROM ServiceRequest src WHERE src.clientId = :clientId")
     fun getAllRequestByClient(@Param("clientId") clientId: String): List<ServiceRequest>
 
+    @Query("DELETE FROM ServiceRequest src WHERE src.requestId = :requestId")
+    fun deleteRequestById(@Param("requestId") requestId: String)
+
 }

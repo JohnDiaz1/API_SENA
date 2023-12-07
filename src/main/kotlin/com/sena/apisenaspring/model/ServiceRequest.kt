@@ -13,12 +13,12 @@ class ServiceRequest {
     var clientId: Client? = null */
     var clientId: String? = null
     var description: String = ""
-    var requestDate: String? = null
-    var state: String = ""
+    var requestDate: String? = ""
+    var state: String? = ""
 
     constructor() {}
 
-    constructor(/*clientId: Client?*/ clientId: String?, description: String, requestDate: String?, state: String) {
+    constructor(/*clientId: Client?*/ clientId: String?, description: String, requestDate: String?, state: String?) {
         this.clientId = clientId
         this.description = description
         this.requestDate = requestDate

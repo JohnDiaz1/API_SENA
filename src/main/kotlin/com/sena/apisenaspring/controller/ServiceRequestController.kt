@@ -4,6 +4,7 @@ import com.sena.apisenaspring.dto.ServiceRequestDTO
 import com.sena.apisenaspring.service.serviceRequest.ServiceRequestService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -25,9 +26,14 @@ class ServiceRequestController(
         return ResponseEntity.ok(serviceRequestService.getRequestByClientId(clientId))
     }
 
-    @PostMapping("addRequest")
+    @PostMapping("/addRequest")
     fun createRequest(@RequestBody serviceRequestDTO: ServiceRequestDTO): ResponseEntity<ServiceRequestDTO> {
         return ResponseEntity(serviceRequestService.createRequest(serviceRequestDTO), HttpStatus.CREATED)
+    }
+
+    @DeleteMapping("/deleteRequest/{requestId}")
+    fun deleteRequestById(@PathVariable requestId: String): ResponseEntity<Unit> {
+        return ResponseEntity(serviceRequestService.deleteRequest(requestId), HttpStatus.NO_CONTENT)
     }
 
 }

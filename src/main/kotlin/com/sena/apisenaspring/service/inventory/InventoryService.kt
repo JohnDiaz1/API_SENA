@@ -6,5 +6,5 @@ interface InventoryService {
     fun getAllInventory(): List<InventoryDTO>
     fun addItemToInventory(inventoryDTO: InventoryDTO): InventoryDTO
     //fun editItemInventory(): InventoryDTO
-    //fun deleteItem(): InventoryDTO
+    fun deleteItem(itemId: String)
 }

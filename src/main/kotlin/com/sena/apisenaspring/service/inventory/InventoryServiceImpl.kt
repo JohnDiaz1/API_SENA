@@ -23,4 +23,8 @@ class InventoryServiceImpl(
         inventoryRepository.save(item)
         return inventoryMapper.fromEntity(item)
     }
+
+    override fun deleteItem(inventoryId: String) {
+        inventoryRepository.deleteById(inventoryId)
+    }
 }

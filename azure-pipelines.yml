@@ -14,9 +14,18 @@ steps:
   inputs:
     gradleWrapperFile: 'gradlew'
     tasks: 'build'
+    publishJUnitResults: true
+    testResultsFiles: '**/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.17'
     gradleOptions: '-Xmx3072m'
     sonarQubeRunAnalysis: false
     spotBugsAnalysis: false
 
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Azure subscription 1(8bb3f89d-e81d-427a-8194-14b218a1ea7e)'
+    appType: 'webAppLinux'
+    WebAppName: 'service-gestion-api'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'

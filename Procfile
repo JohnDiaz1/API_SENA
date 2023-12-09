@@ -1,0 +1,1 @@
+web: java -jar build/libs/Api-Sena-Spring-1.0.0.jar

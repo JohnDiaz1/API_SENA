@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
+@RequestMapping("client")
 class ClientController (
     private val clientService: ClientService
 ) {
@@ -37,7 +39,7 @@ class ClientController (
             return ResponseEntity(clientService.createClient(clientDTO), HttpStatus.CREATED)
     }
 
-    @PutMapping
+    @PutMapping("/updateClient")
     fun updateClient(@RequestBody clientDTO: ClientDTO): ResponseEntity<ClientDTO> {
         return ResponseEntity.ok(clientService.updateClient(clientDTO))
     }

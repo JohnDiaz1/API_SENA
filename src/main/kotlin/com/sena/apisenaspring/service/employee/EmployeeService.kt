@@ -8,5 +8,6 @@ interface EmployeeService {
     fun getEmployees(): List<EmployeeDTO>
     fun createEmployee(employeeDTO: EmployeeDTO): EmployeeDTO
 
+    fun updateEmployee(employeeDTO: EmployeeDTO): EmployeeDTO
     fun deleteEmployee(employeeId: String)
 }

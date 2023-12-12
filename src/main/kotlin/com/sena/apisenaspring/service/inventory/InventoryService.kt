@@ -5,6 +5,7 @@ import com.sena.apisenaspring.dto.InventoryDTO
 interface InventoryService {
     fun getAllInventory(): List<InventoryDTO>
     fun addItemToInventory(inventoryDTO: InventoryDTO): InventoryDTO
-    //fun editItemInventory(): InventoryDTO
+
+    fun updateItem(inventoryDTO: InventoryDTO): InventoryDTO
     fun deleteItem(itemId: String)
 }

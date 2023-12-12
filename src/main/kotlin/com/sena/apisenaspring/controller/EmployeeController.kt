@@ -9,21 +9,29 @@ import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
+@RequestMapping("employee")
 class EmployeeController(
     private val employeeService: EmployeeService
 ) {
     @GetMapping("/employees")
-    fun getClients(): ResponseEntity<List<EmployeeDTO>> {
+    fun getEmployees(): ResponseEntity<List<EmployeeDTO>> {
         return ResponseEntity.ok(employeeService.getEmployees())
     }
 
     @PostMapping("/addEmployee")
-    fun createClient(@RequestBody employeeDTO: EmployeeDTO): ResponseEntity<EmployeeDTO> {
+    fun createEmployee(@RequestBody employeeDTO: EmployeeDTO): ResponseEntity<EmployeeDTO> {
         return ResponseEntity(employeeService.createEmployee(employeeDTO), HttpStatus.CREATED)
+    }
+
+    @PutMapping("/updateEmployee")
+    fun updateEmployee(@RequestBody employeeDTO: EmployeeDTO): ResponseEntity<EmployeeDTO> {
+        return ResponseEntity.ok(employeeService.updateEmployee(employeeDTO))
     }
 
     @DeleteMapping("deleteEmployee/{employeeId}")

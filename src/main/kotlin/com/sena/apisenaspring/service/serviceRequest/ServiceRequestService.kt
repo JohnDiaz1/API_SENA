@@ -9,6 +9,7 @@ interface ServiceRequestService {
     fun getRequests(): List<ServiceRequestDTO>
     //fun getRequestByState(state: String): List<ServiceRequestDTO>
     fun createRequest(requestDTO: ServiceRequestDTO): ServiceRequestDTO
+    fun updateRequest(requestDTO: ServiceRequestDTO): ServiceRequestDTO
     fun deleteRequest(requestId: String)
 
 }

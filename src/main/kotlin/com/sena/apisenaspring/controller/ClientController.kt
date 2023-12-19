@@ -19,12 +19,12 @@ class ClientController (
     private val clientService: ClientService
 ) {
 
-    @GetMapping("/client/{cedula}")
+    @GetMapping("/getClientByCedula/{cedula}")
     fun getClientByCedula(@PathVariable cedula: String): ResponseEntity<ClientDTO> {
         return ResponseEntity.ok(clientService.getClientByCedula(cedula))
     }
 
-    @GetMapping("/client/{clientId}")
+    @GetMapping("/getClientById/{clientId}")
     fun getClientById(@PathVariable clientId: String): ResponseEntity<ClientDTO> {
         return ResponseEntity.ok(clientService.getClientById(clientId))
     }

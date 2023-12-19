@@ -20,6 +20,7 @@ class ClientMapper: Mapper<ClientDTO, Client> {
 
     override fun toEntity(domain: ClientDTO): Client {
         return Client(
+                domain.clientId,
             domain.cedula,
             domain.name,
             domain.address,

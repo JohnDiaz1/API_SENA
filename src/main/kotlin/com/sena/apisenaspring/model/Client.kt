@@ -6,7 +6,7 @@ import jakarta.persistence.*
  class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    val clientId: String? = null
+    var clientId: String? = ""
     var cedula: String = ""
     var name: String = ""
     var address: String = ""
@@ -14,6 +14,15 @@ import jakarta.persistence.*
     var email: String = ""
 
     constructor() {}
+
+    constructor(clientId: String?, cedula: String, name: String, address: String, phone: String, email: String) {
+        this.clientId = clientId
+        this.cedula = cedula
+        this.name = name
+        this.address = address
+        this.phone = phone
+        this.email = email
+    }
 
     constructor(cedula: String, name: String, address: String, phone: String, email: String) {
         this.cedula = cedula

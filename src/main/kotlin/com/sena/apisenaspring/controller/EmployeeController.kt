@@ -3,6 +3,7 @@ package com.sena.apisenaspring.controller
 import com.sena.apisenaspring.dto.ClientDTO
 import com.sena.apisenaspring.dto.EmployeeDTO
 import com.sena.apisenaspring.service.employee.EmployeeService
+import org.apache.coyote.Response
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.DeleteMapping
@@ -24,6 +25,11 @@ class EmployeeController(
         return ResponseEntity.ok(employeeService.getEmployees())
     }
 
+    @GetMapping("/getEmployeeById/{employeeId}")
+    fun getEmployeeById(@PathVariable employeeId: String): ResponseEntity<EmployeeDTO> {
+        return ResponseEntity.ok(employeeService.getEmployeeById(employeeId))
+    }
+
     @PostMapping("/addEmployee")
     fun createEmployee(@RequestBody employeeDTO: EmployeeDTO): ResponseEntity<EmployeeDTO> {
         return ResponseEntity(employeeService.createEmployee(employeeDTO), HttpStatus.CREATED)
@@ -34,7 +40,7 @@ class EmployeeController(
         return ResponseEntity.ok(employeeService.updateEmployee(employeeDTO))
     }
 
-    @DeleteMapping("deleteEmployee/{employeeId}")
+    @DeleteMapping("/deleteEmployee/{employeeId}")
     fun deleteEmployee(@PathVariable employeeId: String): ResponseEntity<Unit> {
         return ResponseEntity(employeeService.deleteEmployee(employeeId), HttpStatus.NO_CONTENT)
     }

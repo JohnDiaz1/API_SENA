@@ -19,6 +19,14 @@ class Inventory {
 
     constructor() {}
 
+    constructor(inventoryId: String?, name: String, description: String, stock: Int, precioCompra: Double, precioVenta: Double) {
+        this.inventoryId = inventoryId
+        this.name = name
+        this.description = description
+        this.stock = stock
+        this.precioCompra = precioCompra
+        this.precioVenta = precioVenta
+    }
     constructor(name: String, description: String, stock: Int, precioCompra: Double, precioVenta: Double) {
         this.name = name
         this.description = description

@@ -19,6 +19,7 @@ class EmployeeMapper: Mapper<EmployeeDTO, Employee> {
 
     override fun toEntity(domain: EmployeeDTO): Employee {
         return Employee(
+                domain.employeeId,
             domain.name,
             domain.phone,
             domain.position,

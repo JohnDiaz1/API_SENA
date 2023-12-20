@@ -7,6 +7,7 @@ interface ServiceRequestService {
 
     fun getRequestByClientId(clientId: String): List<ServiceRequestDTO>
     fun getRequests(): List<ServiceRequestDTO>
+    fun getRequestById(requestId: String): ServiceRequestDTO
     //fun getRequestByState(state: String): List<ServiceRequestDTO>
     fun createRequest(requestDTO: ServiceRequestDTO): ServiceRequestDTO
     fun updateRequest(requestDTO: ServiceRequestDTO): ServiceRequestDTO

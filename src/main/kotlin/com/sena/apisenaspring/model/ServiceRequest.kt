@@ -7,7 +7,7 @@ import jakarta.persistence.*
 class ServiceRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    val requestId: String? = null
+    var requestId: String? = null
     /*@OneToOne(cascade = [CascadeType.ALL])
     @JoinColumn(name = "ClientId", referencedColumnName = "ClientId")
     var clientId: Client? = null */
@@ -17,7 +17,13 @@ class ServiceRequest {
     var state: String? = ""
 
     constructor() {}
-
+    constructor(/*clientId: Client?*/requestId: String?, clientId: String?, description: String, requestDate: String?, state: String?) {
+        this.requestId = requestId
+        this.clientId = clientId
+        this.description = description
+        this.requestDate = requestDate
+        this.state = state
+    }
     constructor(/*clientId: Client?*/ clientId: String?, description: String, requestDate: String?, state: String?) {
         this.clientId = clientId
         this.description = description

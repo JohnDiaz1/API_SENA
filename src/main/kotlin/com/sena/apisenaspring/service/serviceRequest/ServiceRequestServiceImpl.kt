@@ -27,7 +27,7 @@ class ServiceRequestServiceImpl(
         }
     }
 
-    private fun getRequestById(requestId: String): ServiceRequestDTO {
+    override fun getRequestById(requestId: String): ServiceRequestDTO {
         val optionalRequest = serviceRequestRepository.findById(requestId)
         val request = optionalRequest.orElseThrow { ClientException("Item con id $requestId no existe") }
         return serviceRequestMapper.fromEntity(request)

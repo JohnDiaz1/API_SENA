@@ -19,6 +19,7 @@ class ServiceRequestMapper: Mapper<ServiceRequestDTO, ServiceRequest> {
 
     override fun toEntity(domain: ServiceRequestDTO): ServiceRequest {
         return ServiceRequest(
+                domain.requestId,
             domain.clientId,
             domain.description,
             domain.requestDate,

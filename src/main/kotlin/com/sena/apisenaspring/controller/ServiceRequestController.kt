@@ -24,6 +24,11 @@ class ServiceRequestController(
         return ResponseEntity.ok(serviceRequestService.getRequests())
     }
 
+    @GetMapping("/getRequestById/{requestId}")
+    fun getRequestById(@PathVariable requestId: String): ResponseEntity<ServiceRequestDTO>{
+        return ResponseEntity.ok(serviceRequestService.getRequestById(requestId))
+    }
+
     @GetMapping("/requests/{clientId}")
     fun getRequestsByClient(@PathVariable clientId: String): ResponseEntity<List<ServiceRequestDTO>> {
         return ResponseEntity.ok(serviceRequestService.getRequestByClientId(clientId))

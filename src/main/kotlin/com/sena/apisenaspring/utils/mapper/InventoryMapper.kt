@@ -19,6 +19,7 @@ class InventoryMapper: Mapper<InventoryDTO, Inventory> {
 
     override fun toEntity(domain: InventoryDTO): Inventory {
         return Inventory(
+                domain.inventoryId,
             domain.name,
             domain.description,
             domain.stock,

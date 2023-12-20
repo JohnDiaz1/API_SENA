@@ -16,6 +16,11 @@ class InventoryController(
         return ResponseEntity.ok(inventoryService.getAllInventory())
     }
 
+    @GetMapping("/getItemById/{itemId}")
+    fun getItemById(@PathVariable itemId: String): ResponseEntity<InventoryDTO> {
+        return ResponseEntity.ok(inventoryService.getItemById(itemId))
+    }
+
     @PostMapping("/addItem")
     fun addItem(@RequestBody inventoryDTO: InventoryDTO): ResponseEntity<InventoryDTO> {
         return ResponseEntity(inventoryService.addItemToInventory(inventoryDTO), HttpStatus.CREATED)

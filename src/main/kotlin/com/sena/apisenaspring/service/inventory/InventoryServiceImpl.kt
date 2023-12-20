@@ -1,6 +1,5 @@
 package com.sena.apisenaspring.service.inventory
 
-import com.sena.apisenaspring.dto.EmployeeDTO
 import com.sena.apisenaspring.dto.InventoryDTO
 import com.sena.apisenaspring.repository.InventoryRepository
 import com.sena.apisenaspring.utils.exceptions.ClientException
@@ -20,9 +19,9 @@ class InventoryServiceImpl(
         }
     }
 
-    private fun getItemById(inventoryId: String): InventoryDTO {
-        val optionalItem = inventoryRepository.findById(inventoryId)
-        val item = optionalItem.orElseThrow { ClientException("Item con id $inventoryId no existe") }
+    override fun getItemById(itemId: String): InventoryDTO {
+        val optionalItem = inventoryRepository.findById(itemId)
+        val item = optionalItem.orElseThrow { ClientException("Item con id $itemId no existe") }
         return inventoryMapper.fromEntity(item)
     }
 

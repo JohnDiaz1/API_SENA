@@ -20,7 +20,7 @@ class EmployeeServiceImpl(
         }
     }
 
-    private fun getEmployeeById(employeeId: String): EmployeeDTO {
+    override fun getEmployeeById(employeeId: String): EmployeeDTO {
         val optionalEmployee = employeeRepository.findById(employeeId)
         val employee = optionalEmployee.orElseThrow { ClientException("employee con id $employeeId no existe") }
         return employeeMapper.fromEntity(employee)
